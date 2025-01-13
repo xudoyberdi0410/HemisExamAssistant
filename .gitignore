@@ -1,0 +1,12 @@
+__pycache__
+resourses/*.txt
+venv
+.env
+app.js
+tolowarcase.py
+test.py
+sample_exam_file.html
+prepare_questions.py
+output.json
+gemeni.py
+frontend_test.py
