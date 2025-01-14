@@ -1,7 +1,6 @@
 __pycache__
 resourses/*.txt
 venv
-.env
 app.js
 tolowarcase.py
 test.py

@@ -1,6 +1,7 @@
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from ai import chat
 
 with open('./resourses/answers_lower.json', 'r', encoding='utf-8') as f:
     answers = json.load(f)
@@ -51,6 +52,23 @@ def test():
     print("Solved: ", question, "Answer: ", answer)
     # return key of variant
     return jsonify({"answer": answer})
+
+@app.route("/ai_solve", methods=["POST"])
+def ai_solve():
+    # temp_answer = {'question_1': '0', 'question_2': '2', 'question_3': '1', 'question_4': '3', 'question_5': '3', 'question_6': '0', 'question_7': '3', 'question_8': '2', 'question_9': '2', 'question_10': '0', 'question_11': '0', 'question_12': '3', 'question_13': '3', 'question_14': '1', 'question_15': '3', 'question_16': '2', 'question_17': '0', 'question_18': '3', 'question_19': '0', 'question_20': '3'}
+    # return jsonify(temp_answer)
+    data = request.json
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+    
+    answers = chat.send_message(str(data)).text
+    answers = str(answers.replace("```json", " ").replace("```", " "))
+    json_answers = json.loads(answers)
+    print(json_answers)
+    return jsonify(json_answers)
+    return jsonify({"answers": "answers"})
+    
+
 
 
 app.run(port=5000, debug=True)
