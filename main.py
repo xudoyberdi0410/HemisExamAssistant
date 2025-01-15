@@ -2,24 +2,20 @@ import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from ai import chat
+import unidecode
 
-with open('./resourses/answers_lower.json', 'r', encoding='utf-8') as f:
+with open('./resourses/alghoritms_hemis_test.html.json', 'r', encoding='utf-8') as f:
     answers = json.load(f)
+
+with open("./resourses/alghoritms_hemis_test.html_latin.json", "r", encoding="utf-8") as f:
+    answers_latin = json.load(f)
 
 app = Flask(__name__)
 CORS(app)
 
-# def ask_chatgpt(question: str, variants: str) -> int:
-#     chat_gpt_answer: str = chat.send_message(f"{question}\n{variants}") 
-#     chat_gpt_answer = chat_gpt_answer.text.strip()
-#     try:
-#         chat_gpt_answer = int(chat_gpt_answer)
-#         return chat_gpt_answer
-#     except ValueError:
-#         return -1
 
 @app.route('/solve', methods=['POST'])
-def test():
+def solve():
     data = request.json
     if not data:
         return jsonify({"error": "No data provided"}), 400
@@ -66,9 +62,15 @@ def ai_solve():
     json_answers = json.loads(answers)
     print(json_answers)
     return jsonify(json_answers)
-    return jsonify({"answers": "answers"})
-    
 
+@app.route("/solve_new_method", methods=["POST"])
+def solve_new_method():
+    data = request.json
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    print(data)
+    return jsonify({"answer": "0"})
 
 
 app.run(port=5000, debug=True)
