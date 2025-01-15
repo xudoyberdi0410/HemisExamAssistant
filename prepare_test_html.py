@@ -1,8 +1,9 @@
 from bs4 import BeautifulSoup
 import json
+import random
 
 question_block_template = """
-<div class="box box-default question" id="question_1">
+<div class="box box-default question" id="question_{question_num}">
     <div class="box-header with-border">
         <h3 class="box-title">
             {title}
@@ -53,11 +54,12 @@ variants = list(questions_answers_full.values())[:50]
 for question_num in range(1, len(questions) + 1):
     question = questions[question_num - 1]
     q_variants = variants[question_num - 1]
-    v_block = ""
+    v_block = []
     for variant_num in range(len(q_variants)):
-        v_block+=variant_block_template.format(question_num=question_num, variant_num=variant_num, variant_text=q_variants[variant_num])
-    question_block = question_block_template.format(title=f"{question_num}. {question}", variants_block=v_block)
-    
+        v_block.append(variant_block_template.format(question_num=question_num, variant_num=variant_num, variant_text=q_variants[variant_num]))
+    random.shuffle(v_block)
+    v_block = "".join(v_block)
+    question_block = question_block_template.format(title=f"{question_num}. {question}", variants_block=v_block, question_num=question_num)
     questions_parent.append(BeautifulSoup(question_block, "lxml"))
 
 with open("index.html", "w", encoding="utf-8") as file:
