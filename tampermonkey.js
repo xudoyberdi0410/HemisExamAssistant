@@ -20,7 +20,7 @@
             <button id="auto-solve-btn">Solve</button>
             <button id="ai-solve-btn">AI Solve</button>
             <!-- <iframe src="https://drive.google.com/file/d/1wComPezg7huYW9-oOgeA_SIqvij2ywKE/preview" allow="autoplay" height="300px"></iframe> -->
-            <iframe src="http://16.171.237.185/x_variants"  allow="autoplay" height="300px"></iframe>
+            <iframe src="https://raw.githubusercontent.com/xudoyberdi0410/HemisExamAssistant/refs/heads/main/templates/alghoritms_hemis_test.html"  allow="autoplay" height="300px"></iframe>
         </div>
     </div>
     <style>
@@ -111,7 +111,7 @@ function get_questions_and_variants(){
     questions_blocks.forEach(block => {
         let question = block.querySelector('h3').innerText
         question = question.trim().replace(/^\d+\.\s*/, '')
-        question_id = block.id
+        let question_id = block.id
 
         let variants = {}
         let variants_tag = block.querySelectorAll('p')
