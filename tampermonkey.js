@@ -6,6 +6,7 @@
 // @author       You
 // @match        https://student.fbtuit.uz/*
 // @match        http://127.0.0.1:5500/*
+// @match        https://7fjt674h-5500.euw.devtunnels.ms/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=0.1
 // @grant        none
 // ==/UserScript==
@@ -18,7 +19,8 @@
         <div class="khudoberdi-right kh-h">
             <button id="auto-solve-btn">Solve</button>
             <button id="ai-solve-btn">AI Solve</button>
-            <iframe src="https://drive.google.com/file/d/1wComPezg7huYW9-oOgeA_SIqvij2ywKE/preview" allow="autoplay" height="300px"></iframe>
+            <!-- <iframe src="https://drive.google.com/file/d/1wComPezg7huYW9-oOgeA_SIqvij2ywKE/preview" allow="autoplay" height="300px"></iframe> -->
+            <iframe src="http://16.171.237.185/x_variants"  allow="autoplay" height="300px"></iframe>
         </div>
     </div>
     <style>
@@ -124,7 +126,7 @@ function get_questions_and_variants(){
     return questions
 }
 async function solve_all() {
-    const backend_url = 'http://16.171.237.185/solve';
+    const backend_url = 'http://16.171.237.185/solve_new_method';
     const questions = get_questions_and_variants();
     console.log(questions);
     let i = 0
@@ -162,7 +164,7 @@ async function solve_all() {
     }
 }
 async function ai_solve_btn_onclick(){
-    const backend_url = 'http://16.171.237.185/ai_solve';
+    const backend_url = 'http://16.171.237.185/solve_new_method';
     const questions = get_questions_and_variants();
 
     let answers = await fetch(backend_url, {

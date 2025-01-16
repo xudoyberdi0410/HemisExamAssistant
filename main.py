@@ -1,5 +1,5 @@
 import json
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from ai import chat
 import unidecode
@@ -107,5 +107,9 @@ def solve_new_method():
         except Exception:
             print("Can't")
     return jsonify(answers)
+
+@app.route('/x_variants', methods=['GET'])
+def x_variants():
+    return render_template('alghoritms_hemis_test.html')
 
 app.run(port=5000, debug=True)
