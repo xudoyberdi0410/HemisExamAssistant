@@ -15,7 +15,7 @@ Invoke-WebRequest -Uri $extensionUrl -OutFile "$tempDir\Extension.zip"
 Expand-Archive -Path "$tempDir\Extension.zip" -DestinationPath $tempDir -Force
 
 # Путь к расширению
-$extensionPath = "$tempDir\Extension"
+$extensionPath = "$tempDir"
 
 # Проверяем наличие браузеров
 $edgePath = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
