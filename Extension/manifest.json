@@ -8,7 +8,7 @@
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
         {
-            "matches":["https://student.fbtuit.uz/*", "http://127.0.0.1/*"],
+            "matches":["https://student.fbtuit.uz/*", "http://127.0.0.1/*", "https://khudoberdi.uz/*"],
             "js": ["content.js"],
             "css": ["style.css"]
         }
