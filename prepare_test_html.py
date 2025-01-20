@@ -35,7 +35,7 @@ variant_block_template = """
 </p>
 """
 
-with open("./resourses/alghoritms_hemis_test_full.json", 'r', encoding='utf-8') as f:
+with open("./resourses/answers_full.json", 'r', encoding='utf-8') as f:
     questions_answers_full = json.load(f)
 
 old_html_file_path = "./sample_exam_file.html"

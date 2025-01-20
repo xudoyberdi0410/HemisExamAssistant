@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contetent"></div>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .contetent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+        }
+    </style>
+    <script>
+        let height = document.body.clientHeight
+        let width = document.body.clientWidth
+
+        let img_tag = new Image()
+        img_tag.src = "https://picsum.photos/" + width + "/" + height
+        img_tag.alt = "hehe"
+        img_tag.style.width = "100%"
+        document.querySelector(".contetent").appendChild(img_tag)
+    </script>
+</body>
+</html>

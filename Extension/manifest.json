@@ -1,0 +1,17 @@
+{
+    "name": "HemisTestAssistant",
+    "description": "Чтоб легче было скатывать",
+    "version": "1.0",
+    "manifest_version": 3,
+    "icons": {},
+    "action": {},
+    "permissions": ["activeTab", "scripting"],
+    "content_scripts": [
+        {
+            "matches":["https://student.fbtuit.uz/*", "http://127.0.0.1/*"],
+            "js": ["content.js"],
+            "css": ["style.css"]
+        }
+    ],
+    "background":{}
+}
