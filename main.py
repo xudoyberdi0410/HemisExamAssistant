@@ -59,7 +59,7 @@ def solve_new_method():
             
             # answers_ai = str(answers_ai.replace("```json", " ").replace("```", " "))
             # json_answers = json.loads(answers_ai)
-            # answers.update(ask_ai(unsolved_questions))
+            answers.update(ask_ai(unsolved_questions))
             ...
         except Exception:
             print("Can't")
@@ -72,5 +72,9 @@ def x_variants():
 @app.route("/extension", methods=["GET"])
 def extension():
     return send_file("./ext.zip", as_attachment=True)
+
+@app.route("/install", methods=["GET"])
+def install():
+    return send_file("./install.ps1", as_attachment=True)
 
 app.run(port=5000, debug=True)

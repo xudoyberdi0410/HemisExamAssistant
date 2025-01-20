@@ -1,4 +1,5 @@
 const background_url = 'https://khudoberdi.uz/';
+// const background_url = 'http://localhost:5000/';
 const addon = `
 <div>
     <div class="khudoberdi-modal">
