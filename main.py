@@ -5,7 +5,6 @@ from ai import chat
 import unidecode
 from typing import Dict, Union
 from tenacity import retry, stop_after_attempt, stop_after_delay
-import zipfile
 
 with open('./resourses/answers.json', 'r', encoding='utf-8') as f:
     answers = json.load(f)
